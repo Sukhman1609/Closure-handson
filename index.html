@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body><h1>***CLOSURE HANDSON***</h1>
+  <h2><pre>Q1. function counter(){
+  var counter = 0;
+
+  function IncreaseCounter() {
+      return counter += 1;
+  };
+
+  return IncreaseCounter;
+}
+
+var counter = counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());"</pre></h2>
+<h3><pre>Output:
+  1
+  2
+  3
+  4
+  The code defines an outer function named counter that initializes a local variable counter with a <br>value of 0.Thus, when alert(counter()) is called four times, it displays the incremented values<br> of the counter variable: 1, 2, 3, and 4, respectively.
+</pre></h3>
+<hr>
+<hr>
+    <h2><pre>Q2. "let count = 0;
+        (function () {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+          }
+          console.log(count); // What is logged?
+        })();"</pre></h2>
+        <h3><pre>Output:
+                 1
+                 0
+                 First console will print the condition in if here the count is 1 so it will print the 1 and second console will print the variable outside the function that is 
+                 global variable.
+        </pre></h3>
+        <hr>
+<hr>
+        <h2><pre>Q3. "for (var i = 0; i < 3; i++) {
+          setTimeout(function log() {
+            console.log(i); // What is logged?
+          }, 1000);
+        }"
+      </pre></h2>
+  
+        <h3><pre>Output:
+         3
+         3
+         3
+         The code uses a for loop to iterate three times, starting from i = 0 and incrementing i by 1 in each iteration.
+         When the first callback executes, the value of i is 3. The same applies to the second and third callbacks, as the loop has already finished and i remains 3.
+ </pre></h3>
+ <hr>
+      <hr>
+      <h2>Q4. Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h2>
+      <h3><pre> function calculateRectangleArea(length) {
+        function calculateArea(breadth) {
+          return length * breadth;
+        }
+      
+        return calculateArea;
+      }
+      
+      var areaCalculator = calculateRectangleArea(5);
+      
+      var area = areaCalculator(10);
+      
+      console.log(area); 
+      Output: 50</pre></h3>
+      <hr>
+      <hr>
+      <h2>Q5. Take a variable in outer function and create an inner function to increase the counter every time it is called</h2>
+      <h3><pre>function createCounter() {
+        let counter = 0; 
+      
+        function increaseCounter() {
+          counter++;
+          console.log(counter); 
+        }
+      
+        return increaseCounter; // Return the inner function
+      }
+      
+      // Create a counter using the outer function
+      const counter = createCounter();
+      
+      // Call the inner function multiple times
+      counter(); // Output: 1
+      counter(); // Output: 2
+      counter(); // Output: 3</pre></h3>
+      <hr>
+      <hr>
+      <h2><pre>Q6. "Print Output
+
+        var a = 12;
+        (function () {
+          console.log(a);
+        })();"</pre></h2>
+        <h3>Output:12    The code defines a variable a with a value of 12. Inside the function, an console.log(a) function is called to display the value of a.</h3>
+        <hr>
+        <hr>
+        <h2><pre>Q7. "var a = 10;
+          var x = (function () {
+            var a = 12;
+            return function () {
+              console.log(a);
+            };
+          })();
+          x();"</pre></h2>
+          <h3>Output:12    The code initializes a variable a with a value of 10. The returned function, assigned to x, creates a closure over the inner variable a. When the function is invoked using x(), it alerts the value of the inner variable a, which is 12.</h3>
+          <hr>
+          <hr>
+          <h2><pre>Q8. "var globalVar = ""xyz"";
+
+            (function outerFunc(outerArg) {
+                var outerVar = 'a';
+                
+                (function innerFunc(innerArg) {
+                var innerVar = 'b';
+                
+                console.log(
+                    ""outerArg = "" + outerArg + ""\n"" +
+                    ""innerArg = "" + innerArg + ""\n"" +
+                    ""outerVar = "" + outerVar + ""\n"" +
+                    ""innerVar = "" + innerVar + ""\n"" +
+                    ""globalVar = "" + globalVar);
+                
+                })(456);
+            })(123);"</pre></h2>
+            <h3><pre>OUTPUT:
+              outerArg = 123
+              innerArg = 456
+              outerVar = a
+              innerVar = b
+              globalVar = xyz
+            
+              The value of outerArg is 123, which is the argument passed to the outer function.
+              The value of innerArg is 456, which is the argument passed to the inner function.
+              The value of outerVar is 'a', which is the local variable declared and assigned inside the outer function.
+              The value of innerVar is 'b', which is the local variable declared and assigned inside the inner function.
+              The value of globalVar is 'xyz', which is the global variable defined outside all functions.</pre></h3>
+
+
+
+</body>
+</html>
